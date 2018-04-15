@@ -10,3 +10,4 @@ No hay tests porque el código se lee genial.
 
 # Como usar
 Para ejecutar el proyecto sólo hay que hacer: `php chupi.php`, y ya tendrás tu palabra molona!
+t
