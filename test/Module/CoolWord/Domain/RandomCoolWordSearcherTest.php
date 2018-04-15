@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace App\Tests\Module\CoolWord\Domain;
+namespace LaSalle\ChupiProject\Tests\Module\CoolWord\Domain;
 
 use LaSalle\ChupiProject\Module\CoolWord\Domain\CoolWordRepository;
 use LaSalle\ChupiProject\Module\CoolWord\Domain\RandomCoolWordSearcher;
@@ -23,7 +23,7 @@ final class RandomCoolWordSearcherTest extends TestCase
     }
 
     /** @test */
-    public function it_should_search_a_new_cool_word_from_the_repository()
+    public function it_should_search_a_new_cool_word_from_the_collection()
     {
         $wordCollection = CoolWordCollectionStub::random(3);
         $this->repository

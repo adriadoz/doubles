@@ -2,9 +2,9 @@
 
 declare(strict_types = 1);
 
-namespace App\Tests\Module\Color\Domain;
+namespace LaSalle\ChupiProject\Tests\Module\Color\Domain;
 
-use App\Tests\Module\Color\Domain\ColorStub;
+use LaSalle\ChupiProject\Tests\Module\Color\Domain\ColorStub;
 use LaSalle\ChupiProject\Module\Color\Domain\Color;
 use LaSalle\ChupiProject\Module\Color\Domain\ColorCollection;
 

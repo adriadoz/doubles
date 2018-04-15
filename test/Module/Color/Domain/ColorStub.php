@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace App\Tests\Module\Color\Domain;
+namespace LaSalle\ChupiProject\Tests\Module\Color\Domain;
 
 
 use Faker\Factory;

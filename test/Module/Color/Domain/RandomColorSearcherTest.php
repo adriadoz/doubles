@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace App\Tests\Module\Color\Domain;
+namespace LaSalle\ChupiProject\Tests\Module\Color\Domain;
 
 use LaSalle\ChupiProject\Module\Color\Domain\ColorRepository;
 use LaSalle\ChupiProject\Module\Color\Domain\RandomColorSearcher;
@@ -23,7 +23,7 @@ final class RandomColorSearcherTest extends TestCase
     }
 
     /** @test */
-    public function it_should_search_a_new_color_from_the_repository()
+    public function it_should_search_a_new_color_from_the_collection()
     {
         $colorCollection = ColorCollectionStub::random(3);
         $this->repository

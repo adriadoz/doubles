@@ -12,7 +12,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "App\\Tests\\": "test/"
+            "LaSalle\\ChupiProject\\Tests\\": "test/"
         }
     },
     "require-dev": {

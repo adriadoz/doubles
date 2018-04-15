@@ -2,9 +2,9 @@
 
 declare(strict_types = 1);
 
-namespace App\Tests\Module\CoolWord\Infrastructure;
+namespace LaSalle\ChupiProject\Tests\Module\CoolWord\Infrastructure;
 
-use App\Tests\Module\CoolWord\Domain\CoolWordCollectionStub;
+use LaSalle\ChupiProject\Tests\Module\CoolWord\Domain\CoolWordCollectionStub;
 use LaSalle\ChupiProject\Module\CoolWord\Domain\CoolWordRepository;
 use LaSalle\ChupiProject\Module\CoolWord\Infrastructure\InMemoryCoolWordRepository;
 use Mockery;

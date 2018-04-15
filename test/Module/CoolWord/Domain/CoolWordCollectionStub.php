@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace App\Tests\Module\CoolWord\Domain;
+namespace LaSalle\ChupiProject\Tests\Module\CoolWord\Domain;
 
 use LaSalle\ChupiProject\Module\CoolWord\Domain\CoolWord;
 use LaSalle\ChupiProject\Module\CoolWord\Domain\CoolWordCollection;
