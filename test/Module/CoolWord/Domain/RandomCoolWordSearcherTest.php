@@ -2,30 +2,37 @@
 
 declare(strict_types = 1);
 
-namespace App\Tests\Module\Color\Domain;
+namespace App\Tests\Module\CoolWord\Domain;
 
-use LaSalle\ChupiProject\Module\CoolWord\Infrastructure\InMemoryCoolWordRepository;
+use LaSalle\ChupiProject\Module\CoolWord\Domain\CoolWordRepository;
 use LaSalle\ChupiProject\Module\CoolWord\Domain\RandomCoolWordSearcher;
+use Mockery;
 use PHPUnit\Framework\TestCase;
 
 final class RandomCoolWordSearcherTest extends TestCase
 {
-    private $coolWordRepository;
+    /** @var CoolWordRepository|Mockery\MockInterface */
+    private $repository;
     private $coolWordSearcher;
-    private $allCoolWords;
 
     protected function setUp()
     {
         parent::setUp();
-        $this->coolWordRepository = new InMemoryCoolWordRepository();
-        $this->coolWordSearcher = new RandomCoolWordSearcher($this->coolWordRepository);
-        $this->allCoolWords = $this->coolWordRepository->all();
+        $this->repository =  Mockery::mock(CoolWordRepository::class);
+        $this->coolWordSearcher = new RandomCoolWordSearcher($this->repository);
     }
 
     /** @test */
     public function it_should_search_a_new_cool_word_from_the_repository()
     {
-        $coolWord = $this->coolWordSearcher->__invoke();
-        $this->assertTrue(in_array($coolWord, $this->allCoolWords));
+        $wordCollection = CoolWordCollectionStub::random(3);
+        $this->repository
+            ->shouldReceive('all')
+            ->once()
+            ->andReturn($wordCollection);
+
+        $coolWord = $this->coolWordSearcher->search();
+
+        $this->assertTrue(in_array($coolWord, $wordCollection->getArray()));
     }
 }

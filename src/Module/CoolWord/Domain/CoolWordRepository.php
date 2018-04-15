@@ -6,5 +6,5 @@ namespace LaSalle\ChupiProject\Module\CoolWord\Domain;
 
 interface CoolWordRepository
 {
-    public function all(): array;
+    public function all(): CoolWordCollection;
 }

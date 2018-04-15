@@ -19,9 +19,9 @@ final class InMemoryCoolWordRepositoryTest extends TestCase
     }
 
     /** @test */
-    public function it_should_provide_an_array_of_colors()
+    public function it_should_provide_an_array_of_words()
     {
-        $allCoolWords = $this->coolWordRepository->all();
+        $allCoolWords = $this->coolWordRepository->all()->getArray();
         $this->assertTrue(is_array($allCoolWords));
     }
 }

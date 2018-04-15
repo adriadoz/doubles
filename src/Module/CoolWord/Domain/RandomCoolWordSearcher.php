@@ -7,6 +7,7 @@ namespace LaSalle\ChupiProject\Module\CoolWord\Domain;
 final class RandomCoolWordSearcher
 {
     private $repository;
+    private $word;
 
     public function __construct(CoolWordRepository $repository)
     {
@@ -15,8 +16,20 @@ final class RandomCoolWordSearcher
 
     public function __invoke(): string
     {
-        $words = $this->repository->all();
+        return $this->search()->__toString();
+    }
 
-        return $words[mt_rand(0, count($words) - 1)];
+    public function search(): ?CoolWord
+    {
+        $words = $this->repository->all()->getArray();
+
+        if(count($words)==0){
+            return CoolWord::fromString('');
+        }
+
+        $this->word = CoolWord::fromString((string)$words[mt_rand(0, count($words) - 1)]);
+
+        return $this->word;
+
     }
 }
