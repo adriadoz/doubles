@@ -19,7 +19,7 @@ final class CoolWordCollection
         return new self($words);
     }
 
-    public function getArray()
+    public function toArray() :array
     {
         return $this->words;
     }

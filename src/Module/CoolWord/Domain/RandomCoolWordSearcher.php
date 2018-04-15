@@ -21,7 +21,7 @@ final class RandomCoolWordSearcher
 
     public function search(): ?CoolWord
     {
-        $words = $this->repository->all()->getArray();
+        $words = $this->repository->all()->toArray();
 
         if(count($words)==0){
             return CoolWord::fromString('');
