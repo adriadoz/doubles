@@ -5,6 +5,7 @@ namespace LaSalle\ChupiProject\Module\Color\Domain;
 final class RandomColorSearcher
 {
     private $repository;
+    private $color;
 
     public function __construct(ColorRepository $repository)
     {
@@ -13,8 +14,20 @@ final class RandomColorSearcher
 
     public function __invoke()
     {
-        $colors = $this->repository->all();
+        return $this->search()->__toString();
+    }
 
-        return $colors[mt_rand(0, count($colors) - 1)];
+    public function search(): ?Color
+    {
+        $colors = $this->repository->all()->toArray();
+
+        if(count($colors)==0){
+            return null;
+        }
+
+        $this->color = Color::fromString($colors[mt_rand(0, count($colors) - 1)]->__toString());
+
+        return $this->color;
+
     }
 }

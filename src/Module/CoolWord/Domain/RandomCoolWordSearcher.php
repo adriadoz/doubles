@@ -27,7 +27,7 @@ final class RandomCoolWordSearcher
             return CoolWord::fromString('');
         }
 
-        $this->word = CoolWord::fromString((string)$words[mt_rand(0, count($words) - 1)]);
+        $this->word = CoolWord::fromString($words[mt_rand(0, count($words) - 1)]->__toString());
 
         return $this->word;
 

@@ -22,7 +22,7 @@ final class InMemoryCoolWordRepositoryTest extends TestCase
     }
 
     /** @test */
-    public function it_should_provide_an_array_of_words()
+    public function it_should_provide_a_collection_of_words()
     {
         $wordCollection = CoolWordCollectionStub::random(3);
         $this->repository

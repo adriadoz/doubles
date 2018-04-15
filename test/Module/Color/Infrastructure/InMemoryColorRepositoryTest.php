@@ -4,24 +4,31 @@ declare(strict_types = 1);
 
 namespace App\Tests\Module\Color\Infrastructure;
 
-use LaSalle\ChupiProject\Module\Color\Infrastructure\InMemoryColorRepository;
+use App\Tests\Module\Color\Domain\ColorCollectionStub;
+use LaSalle\ChupiProject\Module\Color\Domain\ColorRepository;
+use Mockery;
 use PHPUnit\Framework\TestCase;
 
 final class InMemoryColorRepositoryTest extends TestCase
 {
-    /** @var InMemoryColorRepository */
-    private $colorRepository;
+    private $repository;
 
     protected function setUp()
     {
         parent::setUp();
-        $this->colorRepository = new InMemoryColorRepository();
+        $this->repository = Mockery::mock(ColorRepository::class);
     }
 
     /** @test */
-    public function it_should_provide_an_array_of_colors()
+    public function it_should_provide_an_collection_of_colors()
     {
-        $allColors = $this->colorRepository->all();
-        $this->assertTrue(is_array($allColors));
+        $colorCollection = ColorCollectionStub::random(3);
+        $this->repository
+            ->shouldReceive('all')
+            ->once()
+            ->andReturn($colorCollection);
+
+        $allColors = $this->repository->all();
+        $this->assertEquals($colorCollection, $allColors);
     }
 }
