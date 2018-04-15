@@ -23,7 +23,7 @@ final class RandomColorSearcherTest extends TestCase
     }
 
     /** @test */
-    public function it_should_return_a_new_color_from_the_repository()
+    public function it_should_search_a_new_color_from_the_repository()
     {
         $color = $this->colorSearcher->__invoke();
         $this->assertTrue(in_array($color, $this->allColors));

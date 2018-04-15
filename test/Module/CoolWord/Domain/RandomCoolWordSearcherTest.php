@@ -23,7 +23,7 @@ final class RandomCoolWordSearcherTest extends TestCase
     }
 
     /** @test */
-    public function it_should_return_a_new_cool_word_from_the_repository()
+    public function it_should_search_a_new_cool_word_from_the_repository()
     {
         $coolWord = $this->coolWordSearcher->__invoke();
         $this->assertTrue(in_array($coolWord, $this->allCoolWords));
