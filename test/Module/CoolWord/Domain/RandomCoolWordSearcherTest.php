@@ -28,5 +28,4 @@ final class RandomCoolWordSearcherTest extends TestCase
         $coolWord = $this->coolWordSearcher->__invoke();
         $this->assertTrue(in_array($coolWord, $this->allCoolWords));
     }
-
 }
