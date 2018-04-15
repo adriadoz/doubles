@@ -8,14 +8,14 @@ final class ColorCollection
 {
     private $colors;
 
-    private function __construct($colors)
+    private function __construct(Color ...$colors)
     {
         $this->colors = $colors;
     }
 
-    public static function fromArray($colors): ColorCollection
+    public static function fromArray(Color ...$colors): ColorCollection
     {
-        return new self($colors);
+        return new self(...$colors);
     }
 
     public function toArray(): array

@@ -5,13 +5,14 @@ declare(strict_types = 1);
 namespace App\Tests\Module\Color\Domain;
 
 use App\Tests\Module\Color\Domain\ColorStub;
+use LaSalle\ChupiProject\Module\Color\Domain\Color;
 use LaSalle\ChupiProject\Module\Color\Domain\ColorCollection;
 
 final class ColorCollectionStub
 {
-    public static function create($colors): ColorCollection
+    public static function create(Color ...$colors): ColorCollection
     {
-        return ColorCollection::fromArray($colors);
+        return ColorCollection::fromArray(...$colors);
     }
 
     public static function random(int $numberItems): ColorCollection
@@ -21,6 +22,6 @@ final class ColorCollectionStub
         {
             array_push($colors, ColorStub::random());
         }
-        return self::create($colors);
+        return self::create(...$colors);
     }
 }
